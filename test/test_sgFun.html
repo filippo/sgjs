@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>Test sgFun</title>
+<script type="text/javascript" src="../lib/sgUnit.js"></script>
+<script type="text/javascript" src="../lib/sgFun.js"></script>
+<script language="javascript">
+function test_map() {
+   res = sgFun.map(function(x) {return 2*x}, [1,2,3,4]);
+   return sgUnit.assertEqual(res, [2,4,6,8]);
+}
+
+function test_filter() {
+   res = sgFun.filter(function(x) {return x>2}, [1,2,3,4]);
+   return sgUnit.assertEqual(res, [3,4]);
+}
+
+function test_folds() {
+   res = sgFun.foldl(function(x, acc) {return acc+x}, [1,2,3,4], 0); 
+   res2 = sgFun.foldl(function(x, acc) {return acc-x}, [1,2,3,4], 0);
+   res3 = sgFun.foldr(function(x, acc) {return acc-x}, [1,2,3,4], 0);
+   return [sgUnit.assertEqual(res, 10),
+           sgUnit.assertEqual(res2, -10),
+           sgUnit.assertEqual(res3, -10)];
+}
+
+function run() {
+  sgUnit.run_tests([test_map, test_folds, test_filter], 'testResult');
+}
+</script>
+</head>
+
+<body onload="run();">
+<h1>Testing sgFun</h1>
+<pre id="testResult"></pre>
+
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Mon Jul  9 17:57:52 CEST 2007 <!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Test SG Forms</title>
+        <script src="../lib/sgFun.js"></script>
+        <script src="../lib/sgForms.js"></script>
+    </head>
+    <body>
+        <h1>Test SG Forms</h1>
+        <script language="javascript">
+        <!--
+        function checkForm() {
+            var rules = {'email':['notEmpty', 'email'], 'one':['notEmpty'], 'two':['notEmpty'], 'myCheck':['isChecked']};
+            return sgForms.validateAlert(rules, 'it');
+        }
+        //-->
+        </script>
+        <form name="testForm" id="testForm" method="GET" action="#" onSubmit="return checkForm();">
+
+        <label for="email">email</label> <input type="text" id="email" name="email" value=""><br>
+        <label for="one">field 1</label> <input type="text" id="one" name="one" value=""><br>
+        <label>field 2</label> <input type="text" id="two" name="two" value=""><br>
+        <label>CheckBox</label> <input type="checkbox" id="myCheck" name="myCheck" title="CheckBox" value="whatever"><br>
+
+        <label>regex</label>  <input type="text" name="regex" value=""><br>
+        <input type="submit" name="clickme" value="Check Form">
+        </form>
+    </body>
+</html>
