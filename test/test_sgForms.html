@@ -9,7 +9,11 @@
         <script language="javascript">
         <!--
         function checkForm() {
-            var rules = {'email':['notEmpty', 'email'], 'one':['notEmpty'], 'two':['notEmpty'], 'myCheck':['isChecked']};
+            var rules = {'email':['notEmpty', 'email'], 
+	                 'one':['notEmpty'], 
+                         'two':['notEmpty'], 
+                         'myCheck':['isChecked'],
+                         'invalid': ['waathever']};
             return sgForms.validateAlert(rules, 'it');
         }
         //-->
