@@ -15,6 +15,9 @@ build.foo:
 	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt;
 
 
+lint:
+	cd $(TEST_DIR) && $(MAKE) lint
+
 test: test.foo
 
 test.foo:
