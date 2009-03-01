@@ -5,7 +5,7 @@ all: test
 test: ${TESTS}
 
 %.js: test.foo
-	smjs $@
+	smjs -s $@
 
 test.foo:
 	true;
