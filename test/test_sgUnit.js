@@ -1,5 +1,5 @@
+load("../lib/sgUtil.js");
 load("../lib/sgUnit.js");
-load("../lib/sgFun.js");
 
 function test_equal() {
    return [sgUnit.assertEqual(10, 10),
