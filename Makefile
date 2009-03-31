@@ -1,6 +1,6 @@
 TEST_DIR = test
 
-VSN = 0.3.1
+VSN = 0.3.2
 
 .PHONY: all
 
@@ -10,6 +10,7 @@ build: build.foo
 
 build.foo: 
 	rm build/*.*; \
+	python tools/jsmin.py < lib/sgUtil.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgFun.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgForms.js >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt;
