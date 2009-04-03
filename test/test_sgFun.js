@@ -35,6 +35,17 @@ function test_array_flatten() {
   return sgUnit.assertEqual(res, [1,2,3,4,5,6,7]);
 }
 
+function test_array_all_any() {
+  var res1 = [1,2,3,4].any(function(x) {return x>3;}); //true
+  var res2 = [1,2,3,4].any(function(x) {return x>4;}); //false
+  var res3 = [1,2,3,4].all(function(x) {return x<5;}); //true
+  var res4 = [1,2,3,4].all(function(x) {return x<4;}); //false
+  return [sgUnit.assertEqual(res1, true),
+	  sgUnit.assertEqual(res2, false),
+	  sgUnit.assertEqual(res3, true),
+	  sgUnit.assertEqual(res4, false)];
+}
+
 function test_map() {
   var doubleF = function(x) {return 2*x;};
   var res = sgFun.map(doubleF, [1,2,3,4]);
@@ -62,6 +73,7 @@ sgUnit.run_tests([test_array_map,
 		  test_array_fold,
 		  test_array_filter,
 		  test_array_flatten,
+		  test_array_all_any,
 		  test_map,
 		  test_folds,
 		  test_filter]);
