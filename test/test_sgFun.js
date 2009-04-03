@@ -1,6 +1,39 @@
 load("../lib/sgUtil.js");
 load("../lib/sgUnit.js");
 load("../lib/sgFun.js");
+/*
+ * test object augmentations
+ */
+function test_array_map() {
+  var square = function(x) {return x*x;};
+  var res = [1,2,3,4,5].map(square);
+  return sgUnit.assertEqual(res, [1,4,9,16,25]);
+}
+
+function test_array_fold() {
+  var add = function(a,b) {return a+b;};
+  var mult = function(a,b) {return a*b;};
+  var r1 = [1,2,3,4,5].foldl(add,0);
+  var r2 = [1,2,3,4,5].foldr(add,0);
+  var r3 = [1,2,3,4,5].foldl(mult,1);
+  var r4 = [1,2,3,4,5].foldr(mult,1);
+  var sum = 15;
+  var product = 120;
+  return [sgUnit.assertEqual(r1, sum),
+	  sgUnit.assertEqual(r2, sum),
+	  sgUnit.assertEqual(r3, product),
+	  sgUnit.assertEqual(r4, product)];
+}
+
+function test_array_filter() {
+  var res = [1,2,3,4,5,6,7].filter(function(x) {return x>3;});
+  return sgUnit.assertEqual(res, [4,5,6,7]);
+}
+
+function test_array_flatten() {
+  var res = [1,[2,[3,4],5],6,[7]].flatten();
+  return sgUnit.assertEqual(res, [1,2,3,4,5,6,7]);
+}
 
 function test_map() {
   var doubleF = function(x) {return 2*x;};
@@ -25,5 +58,11 @@ function test_folds() {
           sgUnit.assertEqual(res3, -10)];
 }
 
-sgUnit.run_tests([test_map, test_folds, test_filter]);
+sgUnit.run_tests([test_array_map,
+		  test_array_fold,
+		  test_array_filter,
+		  test_array_flatten,
+		  test_map,
+		  test_folds,
+		  test_filter]);
 
