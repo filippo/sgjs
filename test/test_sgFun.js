@@ -60,6 +60,15 @@ function test_filter() {
   return sgUnit.assertEqual(res, [3,4]);
 }
 
+function test_partial() {
+  var adder = function(a,b) {return a + b;};
+  var add1 = sgFun.partial(adder, 1);
+  return [sgUnit.assertEqual(add1(0), 1),
+	  sgUnit.assertEqual(add1(4), 5),
+	  sgUnit.assertEqual(add1(100), 101),
+	  sgUnit.assertEqual(add1(9999), 10000)];
+}
+
 function test_folds() {
   var res = sgFun.foldl(function(x, acc) {return acc+x;}, [1,2,3,4], 0);
   var res2 = sgFun.foldl(function(x, acc) {return acc-x;}, [1,2,3,4], 0);
@@ -75,6 +84,7 @@ sgUnit.run_tests([test_array_map,
 		  test_array_flatten,
 		  test_array_all_any,
 		  test_map,
+		  test_partial,
 		  test_folds,
 		  test_filter]);
 
