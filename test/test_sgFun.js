@@ -60,6 +60,11 @@ function test_filter() {
   return sgUnit.assertEqual(res, [3,4]);
 }
 
+function test_flatten() {
+  var res = sgFun.flatten([1,[2,[3,4],5],6,[7]]);
+  return sgUnit.assertEqual(res, [1,2,3,4,5,6,7]);
+}
+
 function test_partial() {
   var adder = function(a,b) {return a + b;};
   var add1 = sgFun.partial(adder, 1);
@@ -86,5 +91,6 @@ sgUnit.run_tests([test_array_map,
 		  test_map,
 		  test_partial,
 		  test_folds,
+		  test_flatten,
 		  test_filter]);
 
