@@ -83,6 +83,20 @@ function test_folds() {
           sgUnit.assertEqual(res3, -10)];
 }
 
+function test_lc() {
+  /* list comprehension */
+  var incr = function(x) {
+    return x+1;
+  };
+  var is_odd = function(x) {
+    return (x%2) == 1;
+  };
+  var res1 = sgFun.lc({'do': incr, 'in': [1,2,3,4,5]});
+  var res2 = sgFun.lc({'do': incr, 'in': [1,2,3,4,5], 'if': is_odd});
+  return [sgUnit.assertEqual(res1, [2,3,4,5,6]),
+	  sgUnit.assertEqual(res2, [2,4,6])];
+}
+
 sgUnit.run_tests([test_array_map,
 		  test_array_fold,
 		  test_array_filter,
@@ -92,5 +106,6 @@ sgUnit.run_tests([test_array_map,
 		  test_partial,
 		  test_folds,
 		  test_flatten,
-		  test_filter]);
+		  test_filter,
+		  test_lc]);
 
