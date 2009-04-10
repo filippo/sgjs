@@ -65,6 +65,14 @@ function test_flatten() {
   return sgUnit.assertEqual(res, [1,2,3,4,5,6,7]);
 }
 
+function test_zip() {
+  var res1 = sgFun.zip([1,2,3], [4,5,6], [7,8,9]);
+  var res2 = sgFun.zip([1,2,3], [4], [5,6]);
+  return [sgUnit.assertEqual(res1, [[1,4,7],[2,5,8],[3,6,9]]),
+	  sgUnit.assertEqual(res2, [[1,4,5],[2,undefined,6],[3,undefined,undefined]])
+	 ];
+}
+
 function test_partial() {
   var adder = function(a,b) {return a + b;};
   var add1 = sgFun.partial(adder, 1);
@@ -103,6 +111,7 @@ sgUnit.run_tests([test_array_map,
 		  test_array_flatten,
 		  test_array_all_any,
 		  test_map,
+		  test_zip,
 		  test_partial,
 		  test_folds,
 		  test_flatten,
