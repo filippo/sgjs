@@ -1,6 +1,6 @@
 TEST_DIR = test
 
-VSN = 0.5.2.2
+VSN = 0.5.2.3
 
 .PHONY: all
 
