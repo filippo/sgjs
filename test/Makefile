@@ -1,4 +1,4 @@
-TESTS = test_sgUnit.js test_sgFun.js
+TESTS = test_sgUnit.js test_sgFun.js test_sgLog.js
 TOLINT = ../lib/sgFun.js ../lib/sgForms.js ../lib/sgHTML.js
 
 all: lint test
