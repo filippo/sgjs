@@ -7,16 +7,16 @@
 <script type="text/javascript" src="../lib/sgUnit.js"></script>
 <script type="text/javascript" src="../lib/sgLog.js"></script>
 <script language="javascript">
-function test_msg() {
-   var logger = sgLog.msg;
+function test_log() {
    var logMsg = "This is a test!";
+   var logger = sgLog.msg;
    result = logger(logMsg);
-   return [sgUnit.assertEqual(logger, console.log),
+   return [sgUnit.assertEqual(typeof(sgLog.msg), 'function'),
            sgUnit.assertEqual(result, logMsg)];
 }
 
 function run() {
-  sgUnit.run_tests([test_msg], 'testResult');
+  sgUnit.run_tests([test_log], 'testResult');
 }
 </script>
 </head>

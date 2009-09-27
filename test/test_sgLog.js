@@ -3,10 +3,11 @@ load("../lib/sgLog.js");
 load("../lib/sgUnit.js");
 
 function test_log() {
-  sgLog.msg("This is a test");
+  var logMsg = "This is a test!";
+  var res = sgLog.msg(logMsg);
   return [sgUnit.assertEqual(typeof(sgLog.msg), 'function'),
-	  sgUnit.assertEqual(sgLog.msg, print)];
+	  sgUnit.assertEqual(res, logMsg)];
 }
 
-sgUnit.run_tests([test_has_log]);
+sgUnit.run_tests([test_log]);
 
