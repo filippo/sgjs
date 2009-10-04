@@ -4,20 +4,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
 <title>Test sgGMaps</title>
 <script type="text/javascript" src="../lib/sgUtil.js"></script>
+<script type="text/javascript" src="../lib/sgLog.js"></script>
 <script type="text/javascript" src="../lib/sgUnit.js"></script>
 <script src="http://maps.google.it/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAABcMsuSzkubXvkGVPZWaUPxRJ6CA2t63szV97J3trzH-lb2bUyRRIeuA5wC0L2ZjcascnZ1Q3-w61Wg" type="text/javascript"></script>
 <script type="text/javascript" src="../lib/sgGMaps.js"></script>
 <script language="javascript">
 var pointToStr = function(x) {
-  var inner = function() {return x['address'];};
-  return inner;
+  return x['address'];
 };
-var markList = [{'address': 'via P. Fracassi 8, Siena',
-                 'toString': pointToStr}
+var markList = [{address: 'via P. Fracassi 8, Siena',
+                 toString: pointToStr}
                ];
+/*
+var options = {lat: 43.302726,
+               long: 11.352578,
+               zoom: 13};
+*/
+var options = {};
 function run() {
-  var map = sgGMaps.init('testResult', [43.302726, 11.352578]);
-  sgGMaps.addMark(map, markList[0].address, 'click', markList[0].toString(markList[0]));
+  var map = sgGMaps.init('testResult', options);
+  sgGMaps.addMarks(map, markList);
 }
 </script>
 </head>
