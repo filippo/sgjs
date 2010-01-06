@@ -6,7 +6,7 @@ VSN = 0.5.4
 
 all: build
 
-build: build.foo
+build: build.foo unittest.foo
 
 build.foo: 
 	rm build/*.*; \
@@ -19,6 +19,12 @@ build.foo:
 	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgGMaps.js  >> build/sgjs-$(VSN).js.txt;
 
+
+unittest.foo: 
+	echo "var sgjs={version: '$(VSN)'};"    > build/sgunit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sgUtil.js  >> build/sgunit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sgFun.js   >> build/sgunit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sgUnit.js  >> build/sgunit-$(VSN).js.txt;
 
 lint:
 	cd $(TEST_DIR) && $(MAKE) lint
