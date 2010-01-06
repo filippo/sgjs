@@ -8,7 +8,7 @@ test: ${TESTS}
 lint: ${TOLINT}
 
 ../lib/%.js: lint.foo
-	rhino jslint.js ../lib/$@
+	rhino jslint.js $@
 
 %.js: test.foo
 	smjs -s $@
