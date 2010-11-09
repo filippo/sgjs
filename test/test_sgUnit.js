@@ -2,19 +2,19 @@ load("../lib/sgUtil.js");
 load("../lib/sgUnit.js");
 
 function test_equal() {
-   return [sgUnit.assertEqual(10, 10),
-           sgUnit.assertEqual(10, parseInt("10", 10)),
-           sgUnit.assertEqual("a string", "a string"),
-	   sgUnit.assertEqual([1,2,3], [1,2,3])];
+   return [sg.unit.assertEqual(10, 10),
+           sg.unit.assertEqual(10, parseInt("10", 10)),
+           sg.unit.assertEqual("a string", "a string"),
+	   sg.unit.assertEqual([1,2,3], [1,2,3])];
 }
 
 function test_not_equal() {
-   return [sgUnit.assertNotEqual(10, 11),
-           sgUnit.assertNotEqual(1, parseInt("10", 10)),
-           sgUnit.assertNotEqual("a string", "a different string"),
-	   sgUnit.assertNotEqual([1,2,3], [1,2,4])];
+   return [sg.unit.assertNotEqual(10, 11),
+           sg.unit.assertNotEqual(1, parseInt("10", 10)),
+           sg.unit.assertNotEqual("a string", "a different string"),
+	   sg.unit.assertNotEqual([1,2,3], [1,2,4])];
 }
 
 
-sgUnit.run_tests([test_equal, test_not_equal]);
+sg.unit.run_tests([test_equal, test_not_equal]);
 
