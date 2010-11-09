@@ -4,6 +4,12 @@ load("../lib/sgFun.js");
 /*
  * test object augmentations
  */
+function test_array_forEach() {
+    var a = [1,2,3,4,5];
+    var square = function(x, index, array) {array[index] = x*x;};
+    a.forEach(square);
+    return sgUnit.assertEqual(a, [1,4,9,16,25]);
+}
 function test_array_map() {
   var square = function(x) {return x*x;};
   var res = [1,2,3,4,5].map(square);
@@ -105,7 +111,8 @@ function test_lc() {
 	  sgUnit.assertEqual(res2, [2,4,6])];
 }
 
-sgUnit.run_tests([test_array_map,
+sgUnit.run_tests([test_array_forEach,
+		  test_array_map,
 		  test_array_fold,
 		  test_array_filter,
 		  test_array_flatten,
