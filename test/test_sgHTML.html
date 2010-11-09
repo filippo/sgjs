@@ -2,33 +2,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<title>Test sgHTML</title>
+<title>Test sg.html</title>
+<script type="text/javascript" src="../lib/sgUtil.js"></script>
 <script type="text/javascript" src="../lib/sgUnit.js"></script>
 <script type="text/javascript" src="../lib/sgFun.js"></script>
 <script type="text/javascript" src="../lib/json.js"></script>
 <script type="text/javascript" src="../lib/sgHTML.js"></script>
 <script language="javascript">
 function test_p() {
-  var el = sgHTML.div(sgHTML.p("This is a test"));
+  var el = sg.html.div(sg.html.p("This is a test"));
   return sgUnit.assertEqual(el.innerHTML, "<p>This is a test</p>");
 }
 
 function test_toggleClass1() {
-  sgHTML.toggleClass('testToggle1', 'toggled');
-  return sgUnit.assertEqual(document.getElementById('testToggle1').className, "c1 c2 toggled");
+  sg.html.toggleClass('testToggle1', 'toggled');
+  return sgUnit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2 toggled");
 }
 function test_toggleClass2() {
-  sgHTML.toggleClass('testToggle2', 'toggled');
-  return sgUnit.assertEqual(document.getElementById('testToggle2').className, "c1 c2");
+  sg.html.toggleClass('testToggle2', 'toggled');
+  return sgUnit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2");
 }
 
 function test_toggleOnEl1() { // remove toggled class
-  sgHTML.toggleClass(document.getElementById('testToggle1'), 'toggled');
-  return sgUnit.assertEqual(document.getElementById('testToggle1').className, "c1 c2");
+  sg.html.toggleClass(sg.html.byId('testToggle1'), 'toggled');
+  return sgUnit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2");
 }
 function test_toggleOnEl2() { // readd toggled class
-  sgHTML.toggleClass(document.getElementById('testToggle2'), 'toggled');
-  return sgUnit.assertEqual(document.getElementById('testToggle2').className, "c1 c2 toggled");
+  sg.html.toggleClass(sg.html.byId('testToggle2'), 'toggled');
+  return sgUnit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2 toggled");
 }
 
 function run() {
@@ -39,7 +40,7 @@ function run() {
 </head>
 
 <body onload="run();">
-<h1>Testing sgHTML</h1>
+<h1>Testing sg.html</h1>
 <pre id="testResult"></pre>
 
 <div id="testToggle1" class="c1 c2"></div>
