@@ -11,12 +11,12 @@ function test_log() {
    var logMsg = "This is a test!";
    var logger = sgLog.msg;
    result = logger(logMsg);
-   return [sgUnit.assertEqual(typeof(sgLog.msg), 'function'),
-           sgUnit.assertEqual(result, logMsg)];
+   return [sg.unit.assertEqual(typeof(sgLog.msg), 'function'),
+           sg.unit.assertEqual(result, logMsg)];
 }
 
 function run() {
-  sgUnit.run_tests([test_log], 'testResult');
+  sg.unit.run_tests([test_log], 'testResult');
 }
 </script>
 </head>

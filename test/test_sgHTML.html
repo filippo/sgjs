@@ -11,30 +11,30 @@
 <script language="javascript">
 function test_p() {
   var el = sg.html.div(sg.html.p("This is a test"));
-  return sgUnit.assertEqual(el.innerHTML, "<p>This is a test</p>");
+  return sg.unit.assertEqual(el.innerHTML, "<p>This is a test</p>");
 }
 
 function test_toggleClass1() {
   sg.html.toggleClass('testToggle1', 'toggled');
-  return sgUnit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2 toggled");
+  return sg.unit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2 toggled");
 }
 function test_toggleClass2() {
   sg.html.toggleClass('testToggle2', 'toggled');
-  return sgUnit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2");
+  return sg.unit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2");
 }
 
 function test_toggleOnEl1() { // remove toggled class
   sg.html.toggleClass(sg.html.byId('testToggle1'), 'toggled');
-  return sgUnit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2");
+  return sg.unit.assertEqual(sg.html.byId('testToggle1').className, "c1 c2");
 }
 function test_toggleOnEl2() { // readd toggled class
   sg.html.toggleClass(sg.html.byId('testToggle2'), 'toggled');
-  return sgUnit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2 toggled");
+  return sg.unit.assertEqual(sg.html.byId('testToggle2').className, "c1 c2 toggled");
 }
 
 function run() {
   var tests = [test_p, test_toggleClass1, test_toggleClass2, test_toggleOnEl1, test_toggleOnEl2];
-  sgUnit.run_tests(tests, 'testResult');
+  sg.unit.run_tests(tests, 'testResult');
 }
 </script>
 </head>
