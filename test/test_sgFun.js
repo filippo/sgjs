@@ -54,7 +54,7 @@ function test_array_all_any() {
 
 function test_map() {
   var doubleF = function(x) {return 2*x;};
-  var res = sgFun.map(doubleF, [1,2,3,4]);
+  var res = sg.fun.map(doubleF, [1,2,3,4]);
   var res2 = [1,2,3,4].map(doubleF);
   return [sg.unit.assertEqual(res, res2),
 	  sg.unit.assertEqual(res, [2,4,6,8]),
@@ -62,18 +62,18 @@ function test_map() {
 }
 
 function test_filter() {
-  var res = sgFun.filter(function(x) {return x>2;}, [1,2,3,4]);
+  var res = sg.fun.filter(function(x) {return x>2;}, [1,2,3,4]);
   return sg.unit.assertEqual(res, [3,4]);
 }
 
 function test_flatten() {
-  var res = sgFun.flatten([1,[2,[3,4],5],6,[7]]);
+  var res = sg.fun.flatten([1,[2,[3,4],5],6,[7]]);
   return sg.unit.assertEqual(res, [1,2,3,4,5,6,7]);
 }
 
 function test_zip() {
-  var res1 = sgFun.zip([1,2,3], [4,5,6], [7,8,9]);
-  var res2 = sgFun.zip([1,2,3], [4], [5,6]);
+  var res1 = sg.fun.zip([1,2,3], [4,5,6], [7,8,9]);
+  var res2 = sg.fun.zip([1,2,3], [4], [5,6]);
   return [sg.unit.assertEqual(res1, [[1,4,7],[2,5,8],[3,6,9]]),
 	  sg.unit.assertEqual(res2, [[1,4,5],[2,undefined,6],[3,undefined,undefined]])
 	 ];
@@ -81,7 +81,7 @@ function test_zip() {
 
 function test_partial() {
   var adder = function(a,b) {return a + b;};
-  var add1 = sgFun.partial(adder, 1);
+  var add1 = sg.fun.partial(adder, 1);
   return [sg.unit.assertEqual(add1(0), 1),
 	  sg.unit.assertEqual(add1(4), 5),
 	  sg.unit.assertEqual(add1(100), 101),
@@ -89,9 +89,9 @@ function test_partial() {
 }
 
 function test_folds() {
-  var res = sgFun.foldl(function(x, acc) {return acc+x;}, [1,2,3,4], 0);
-  var res2 = sgFun.foldl(function(x, acc) {return acc-x;}, [1,2,3,4], 0);
-  var res3 = sgFun.foldr(function(x, acc) {return acc-x;}, [1,2,3,4], 0);
+  var res = sg.fun.foldl(function(x, acc) {return acc+x;}, [1,2,3,4], 0);
+  var res2 = sg.fun.foldl(function(x, acc) {return acc-x;}, [1,2,3,4], 0);
+  var res3 = sg.fun.foldr(function(x, acc) {return acc-x;}, [1,2,3,4], 0);
   return [sg.unit.assertEqual(res, 10),
 	  sg.unit.assertEqual(res2, -10),
           sg.unit.assertEqual(res3, -10)];
@@ -105,8 +105,8 @@ function test_lc() {
   var is_odd = function(x) {
     return (x%2) == 1;
   };
-  var res1 = sgFun.lc({'do': incr, 'in': [1,2,3,4,5]});
-  var res2 = sgFun.lc({'do': incr, 'in': [1,2,3,4,5], 'if': is_odd});
+  var res1 = sg.fun.lc({'do': incr, 'in': [1,2,3,4,5]});
+  var res2 = sg.fun.lc({'do': incr, 'in': [1,2,3,4,5], 'if': is_odd});
   return [sg.unit.assertEqual(res1, [2,3,4,5,6]),
 	  sg.unit.assertEqual(res2, [2,4,6])];
 }

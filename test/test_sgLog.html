@@ -2,17 +2,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<title>Test sgFun</title>
+<title>Test sg.log</title>
 <script type="text/javascript" src="../lib/sgUtil.js"></script>
 <script type="text/javascript" src="../lib/sgUnit.js"></script>
 <script type="text/javascript" src="../lib/sgLog.js"></script>
 <script language="javascript">
 function test_log() {
    var logMsg = "This is a test!";
-   var logger = sgLog.msg;
-   result = logger(logMsg);
-   return [sg.unit.assertEqual(typeof(sgLog.msg), 'function'),
-           sg.unit.assertEqual(result, logMsg)];
+   var logger = sg.log.msg;
+   var logger2 = sg.log.warn;
+   var logger3 = sg.log.error;
+   result  = logger(logMsg);
+   result2 = logger2(logMsg);
+   result3 = logger3(logMsg);
+   return [sg.unit.assertEqual(typeof(sg.log.msg), 'function'),
+           sg.unit.assertEqual(result,  logMsg),
+           sg.unit.assertEqual(result2, logMsg),
+           sg.unit.assertEqual(result2, logMsg)];
 }
 
 function run() {
@@ -22,7 +28,7 @@ function run() {
 </head>
 
 <body onload="run();">
-<h1>Testing sgLog</h1>
+<h1>Testing sg.log</h1>
 <pre id="testResult"></pre>
 
 

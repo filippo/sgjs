@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
 <title>Test sgGMaps</title>
 <script type="text/javascript" src="../lib/sgUtil.js"></script>
-<script type="text/javascript" src="../lib/sgLog.js"></script>
 <script type="text/javascript" src="../lib/sgUnit.js"></script>
 <script src="http://maps.google.it/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAABcMsuSzkubXvkGVPZWaUPxRJ6CA2t63szV97J3trzH-lb2bUyRRIeuA5wC0L2ZjcascnZ1Q3-w61Wg" type="text/javascript"></script>
 <script type="text/javascript" src="../lib/sgGMaps.js"></script>
@@ -22,14 +21,14 @@ var options = {lat: 43.302726,
 */
 var options = {};
 function run() {
-  var map = sgGMaps.init('testResult', options);
-  sgGMaps.addMarks(map, markList);
+  var map = sg.gmaps.init('testResult', options);
+  sg.gmaps.addMarks(map, markList);
 }
 </script>
 </head>
 
 <body onload="run();">
-<h1>Testing sgLog</h1>
+<h1>Testing sg.gmaps</h1>
 <pre id="testResult" style="width: 500px; height: 300px"></pre>
 
 
