@@ -16,7 +16,7 @@ build.foo:
 	python tools/jsmin.py < lib/sg.log.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.forms.js >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.html.js  >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgGMaps.js  >> build/sgjs-$(VSN).js.txt;
+	python tools/jsmin.py < lib/sg.gmaps.js >> build/sgjs-$(VSN).js.txt;
 
 
 unittest.foo: 
