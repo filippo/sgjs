@@ -11,7 +11,7 @@ lint: ${TOLINT}
 	rhino jslint.js $@
 
 %.js: test.foo
-	smjs -s $@
+	rhino $@
 
 test.foo:
 	echo "Running tests..."

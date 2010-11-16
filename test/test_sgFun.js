@@ -1,5 +1,5 @@
-load("../lib/sgUtil.js");
-load("../lib/sgUnit.js");
+load("../lib/sg.js");
+load("../lib/sg.unit.js");
 load("../lib/sgFun.js");
 /*
  * test object augmentations
