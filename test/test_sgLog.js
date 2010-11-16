@@ -1,5 +1,5 @@
 load("../lib/sg.js");
-load("../lib/sgLog.js");
+load("../lib/sg.log.js");
 load("../lib/sg.unit.js");
 
 function test_log() {
