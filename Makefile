@@ -15,7 +15,7 @@ build.foo:
 	python tools/jsmin.py < lib/sg.fun.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.log.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgForms.js >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.html.js  >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgGMaps.js  >> build/sgjs-$(VSN).js.txt;
 
 
