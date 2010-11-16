@@ -1,6 +1,6 @@
 load("../lib/sg.js");
 load("../lib/sg.unit.js");
-load("../lib/sgFun.js");
+load("../lib/sg.fun.js");
 /*
  * test object augmentations
  */

@@ -12,7 +12,7 @@ build.foo:
 	rm build/*.*; \
 	echo "var sgjs={version: '$(VSN)'};"    > build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.js  >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgFun.js   >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.fun.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgLog.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgForms.js >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt; \
@@ -22,7 +22,7 @@ build.foo:
 unittest.foo: 
 	echo "var sgjs={version: '$(VSN)'};"    > build/sg.unit-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.js  >> build/sg.unit-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgFun.js   >> build/sg.unit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.fun.js   >> build/sg.unit-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.unit.js  >> build/sg.unit-$(VSN).js.txt;
 
 lint:
