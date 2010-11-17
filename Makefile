@@ -10,20 +10,20 @@ build: build.foo unittest.foo
 
 build.foo: 
 	rm build/*.*; \
-	echo "var sgjs={version: '$(VSN)'};"    > build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgUtil.js  >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgFun.js   >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgLog.js   >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgForms.js >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgHTML.js  >> build/sgjs-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgGMaps.js  >> build/sgjs-$(VSN).js.txt;
+	echo "var sgjs={version: '$(VSN)'};"     > build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.js       >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.fun.js   >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.log.js   >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.forms.js >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.html.js  >> build/sgjs-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.gmaps.js >> build/sgjs-$(VSN).js.txt;
 
 
 unittest.foo: 
-	echo "var sgjs={version: '$(VSN)'};"    > build/sgunit-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgUtil.js  >> build/sgunit-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgFun.js   >> build/sgunit-$(VSN).js.txt; \
-	python tools/jsmin.py < lib/sgUnit.js  >> build/sgunit-$(VSN).js.txt;
+	echo "var sgjs={version: '$(VSN)'};"    > build/sg.unit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.js      >> build/sg.unit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.fun.js  >> build/sg.unit-$(VSN).js.txt; \
+	python tools/jsmin.py < lib/sg.unit.js >> build/sg.unit-$(VSN).js.txt;
 
 lint:
 	cd $(TEST_DIR) && $(MAKE) lint
