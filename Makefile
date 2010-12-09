@@ -10,7 +10,8 @@ build: build.foo unittest.foo
 
 build.foo: 
 	rm build/*.*; \
-	echo "var sgjs={version: '$(VSN)'};"     > build/sgjs-$(VSN).js.txt; \
+	cat license_header.txt                   > build/sgjs-$(VSN).js.txt; \
+	echo "var sgjs={version: '$(VSN)'};"    >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.js       >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.fun.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.log.js   >> build/sgjs-$(VSN).js.txt; \
@@ -20,7 +21,8 @@ build.foo:
 
 
 unittest.foo: 
-	echo "var sgjs={version: '$(VSN)'};"    > build/sg.unit-$(VSN).js.txt; \
+	cat license_header_sgunit.txt           > build/sg.unit-$(VSN).js.txt; \
+	echo "var sgjs={version: '$(VSN)'};"   >> build/sg.unit-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.js      >> build/sg.unit-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.fun.js  >> build/sg.unit-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.unit.js >> build/sg.unit-$(VSN).js.txt;

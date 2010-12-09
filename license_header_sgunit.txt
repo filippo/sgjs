@@ -1,0 +1,9 @@
+/*!
+ * sg.unit library
+ * http://github.com/filippo/sgjs
+ *
+ * Copyright 2008-2010, S.G. Consulting srl
+ * Licensed under the Mozilla Public License Version 1.1
+ * https://github.com/filippo/sgjs/blob/master/MPL-1.1-LICENSE.txt
+ *
+ */
