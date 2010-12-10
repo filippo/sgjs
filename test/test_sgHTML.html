@@ -9,6 +9,21 @@
 <script type="text/javascript" src="../lib/json.js"></script>
 <script type="text/javascript" src="../lib/sg.html.js"></script>
 <script language="javascript">
+function test_byId() {
+  var el = sg.html.byId("testResult");
+  var el2 = sg.html.byId(document.getElementById("testResult"));
+  return [sg.unit.assert(el == document.getElementById("testResult")),
+          sg.unit.assert(el == el2)];
+}
+
+function test_val() {
+  var newVal = "A new value";
+  var hiddenEl = document.getElementById('hidden_field');
+  return [sg.unit.assertEqual(sg.html.val('hidden_field'), hiddenEl.value),
+          sg.unit.assert(sg.html.val('hidden_field', newVal) == hiddenEl),
+          sg.unit.assertEqual(sg.html.val('hidden_field'), newVal)];
+}
+
 function test_p() {
   var el = sg.html.div(sg.html.p("This is a test"));
   return sg.unit.assertEqual(el.innerHTML, "<p>This is a test</p>");
@@ -33,13 +48,14 @@ function test_toggleOnEl2() { // readd toggled class
 }
 
 function run() {
-  var tests = [test_p, test_toggleClass1, test_toggleClass2, test_toggleOnEl1, test_toggleOnEl2];
+  var tests = [test_byId, test_val, test_p, test_toggleClass1, test_toggleClass2, test_toggleOnEl1, test_toggleOnEl2];
   sg.unit.run_tests(tests, 'testResult');
 }
 </script>
 </head>
 
 <body onload="run();">
+<input type="hidden" id="hidden_field" name="hidden_field" value="some value">
 <h1>Testing sg.html</h1>
 <pre id="testResult"></pre>
 
