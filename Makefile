@@ -14,6 +14,7 @@ build.foo:
 	echo "var sgjs={version: '$(VSN)'};"    >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.js       >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.fun.js   >> build/sgjs-$(VSN).js.txt; \
+	cat lib/sg.sjcl.js                      >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.log.js   >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.forms.js >> build/sgjs-$(VSN).js.txt; \
 	python tools/jsmin.py < lib/sg.html.js  >> build/sgjs-$(VSN).js.txt; \

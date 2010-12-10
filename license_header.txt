@@ -6,4 +6,14 @@
  * Licensed under the Mozilla Public License Version 1.1
  * https://github.com/filippo/sgjs/blob/master/MPL-1.1-LICENSE.txt
  *
+ * Includes:
+ * Stanford Javascript Crypto Library
+ * http://crypto.stanford.edu/sjcl/
+ * Dual-licensed under the BSD or GNU GPL Version 2.0 or higher
+ *
+ * Code snippets from Modernizr
+ * http://www.modernizr.com/
+ * Dual-licensed under the BSD or MIT licenses.
+ * http://www.modernizr.com/license/
+ *
  */
