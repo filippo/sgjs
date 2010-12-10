@@ -4,20 +4,29 @@
         <title>Test sg.forms</title>
         <script src="../lib/sg.js"></script>
         <script src="../lib/sg.fun.js"></script>
+        <script src="../lib/sg.html.js"></script>
         <script src="../lib/sg.forms.js"></script>
+<style>
+.required{border: 1px solid #f00;}
+</style>
     </head>
     <body>
         <h1>Test SG Forms</h1>
         <script language="javascript">
         <!--
+        var rules = {'email':['notEmpty', 'email'],
+                     'one':['notEmpty'],
+                     'two':['notEmpty'],
+                     'myCheck':['isChecked'],
+                     'invalid': ['wathever']};
         function checkForm() {
-            var rules = {'email':['notEmpty', 'email'], 
-	                 'one':['notEmpty'], 
-                         'two':['notEmpty'], 
-                         'myCheck':['isChecked'],
-                         'invalid': ['wathever']};
-            return sg.forms.validate(rules, 'it');
+	   console.log(sg.forms.rules);
+           console.log(sg.forms.validate('it'));
+	   return false;
         }
+	sg.html.ready(function() {
+	   sg.forms.init(rules);
+	 });
         //-->
         </script>
         <form name="testForm" id="testForm" method="GET" action="#" onSubmit="return checkForm();">
