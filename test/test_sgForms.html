@@ -7,7 +7,14 @@
         <script src="../lib/sg.html.js"></script>
         <script src="../lib/sg.forms.js"></script>
 <style>
+body {margin: 20px;}
+label {float: left; width: 100%; margin-bottom:3px;}
+label.left {float: left; width: auto; margin-right:5px;}
+input {float: left; margin-bottom: 10px;}
+input[type=submit]{clear: both;}
 .required{border: 1px solid #f00;}
+.error{float: left; margin-left: 10px; color: #f00;}
+.clearer {clear: both;}
 </style>
     </head>
     <body>
@@ -20,7 +27,6 @@
                      'myCheck':['isChecked'],
                      'invalid': ['wathever']};
         function checkForm() {
-	   console.log(sg.forms.rules);
            console.log(sg.forms.validate('it'));
 	   return false;
         }
@@ -31,13 +37,15 @@
         </script>
         <form name="testForm" id="testForm" method="GET" action="#" onSubmit="return checkForm();">
 
-        <label for="email">email</label> <input type="email" id="email" name="email" value="" placeholder="Insert your email"><br>
-        <label for="one">field 1</label> <input type="text" id="one" name="one" value=""><br>
-        <label>field 2</label> <input type="text" id="two" name="two" value=""><br>
-        <label>CheckBox</label> <input type="checkbox" id="myCheck" name="myCheck" title="CheckBox" value="whatever"><br>
-
-        <label>regex</label>  <input type="text" name="regex" value=""><br>
+        <label for="email">email</label> <input type="email" id="email" name="email" value="" placeholder="Insert your email">
+        <label for="one">field 1</label> <input type="text" id="one" name="one" value="">
+        <label>field 2</label> <input type="text" id="two" name="two" value="">
+	<div class="clearer"></div>
+	<label class="left">CheckBox</label> 
+        <input type="checkbox" id="myCheck" name="myCheck" title="CheckBox" value="whatever">
+        <label>regex</label>  <input type="text" name="regex" value="">
         <input type="submit" name="clickme" value="Check Form">
+
         </form>
     </body>
 </html>
