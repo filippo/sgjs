@@ -21,16 +21,16 @@ input[type=submit]{clear: both;}
         <h1>Test SG Forms</h1>
         <script language="javascript">
         <!--
-        var rules = {'email':['notEmpty', 'email'],
-                     'one':['notEmpty'],
-                     'two':['notEmpty'],
-                     'myCheck':['isChecked'],
-                     'invalid': ['wathever']};
         function checkForm() {
-           console.log(sg.forms.validate('it'));
-	   return false;
+	   try {return sg.forms.validate('it');}
+	   catch(e) {sg.log.msg(e);}
         }
-	sg.html.ready(function() {
+ 	sg.html.ready(function() {
+           var rules = {'email':['notEmpty', 'email'],
+                        'one':['notEmpty'],
+                        'two':['notEmpty'],
+                        'myCheck':['isChecked'],
+                        'invalid': ['wathever']};
 	   sg.forms.init(rules);
 	 });
         //-->
