@@ -6,14 +6,16 @@
         <script src="../lib/sg.fun.js"></script>
         <script src="../lib/sg.html.js"></script>
         <script src="../lib/sg.forms.js"></script>
+        <script src="../lib/sg.log.js"></script>
 <style>
 body {margin: 20px;}
 label {float: left; width: 100%; margin-bottom:3px;}
 label.left {float: left; width: auto; margin-right:5px;}
-input {float: left; margin-bottom: 10px;}
+input {float: left; margin-bottom: 10px;margin-right: 10px;}
+textarea {display: block; clear: left; margin-bottom: 10px;}
 input[type=submit]{clear: both;}
-.required{border: 1px solid #f00;}
-.sgFormsError{float: left; margin-left: 10px; color: #f00;}
+.sgFormsRequired{border: 1px solid #f00;}
+.sgFormsError{float: left; color: #f00;}
 .clearer {clear: both;}
 </style>
     </head>
@@ -39,7 +41,8 @@ input[type=submit]{clear: both;}
 
         <label for="email">email</label> <input type="email" id="email" name="email" value="" placeholder="Insert your email">
         <label for="one">field 1</label> <input type="text" id="one" name="one" value="">
-        <label>field 2</label> <input type="text" id="two" name="two" value="">
+	<div class="clearer"></div>
+        <label>field 2</label> <textarea id="two" name="two"></textarea>
 	<div class="clearer"></div>
 	<label class="left">CheckBox</label> 
         <input type="checkbox" id="myCheck" name="myCheck" title="CheckBox" value="whatever">
